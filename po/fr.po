@@ -1,0 +1,33 @@
+#: run.sh:15
+msgid "Extract Started"
+msgstr "Extraction démarée"
+#: run.sh:18
+msgid "Renaming"
+msgstr "Renommage"
+#: run.sh:22
+msgid "ADB SU copy to sdcard"
+msgstr "ADB SU copie vers la carte SD"
+#: run.sh:24
+msgid "ADB pull"
+msgstr "ADB pull"
+#: run.sh:33
+msgid "Cannot find database files. Non-rooted phone? Attemting backup approach"
+msgstr "Base de données introuvable, téléphone non roooté ? Utilisation de la méthode utilisant la sauvegarde"
+#: run.sh:34
+msgid "Press Backup My Data button on device..."
+msgstr "Cliquez sur votre téléphone pour sauvegarder les données..."
+#: run.sh:36
+msgid "unpacking backup file"
+msgstr "Décompression de la sauvegarde"
+#: run.sh:41
+msgid "deleting temp file"
+msgstr "Suppression des fichiers temporaires"
+#: run.sh:52
+msgid "Extraction failed"
+msgstr "Erreur durant la décompression"
+#: run.sh:53
+msgid "Still cannot find files. Restoring original files"
+msgstr "Fichier toujours introuvable, restoration de l'original"
+#: run.sh:57
+msgid "sqlite operation started"
+msgstr "Démarrage le l'opération sur la base de données"

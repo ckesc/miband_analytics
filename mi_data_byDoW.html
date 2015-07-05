@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0016)http://localhost -->
+<html>
+  <head>
+	<script type="text/javascript" src="https://www.google.com/jsapi?autoload={'modules':[{'name':'visualization','version':'1','packages':['corechart','table','controls','timeline','calendar','annotationchart']}]}"></script>
+	<script type="text/javascript" src="config.js"></script> 
+	<script type="text/javascript" src="app_locale.js"></script>
+	<script type="text/javascript" src="locale.js"></script> 
+	<script type="text/javascript" src="extract.js"></script> 
+	<script type="text/javascript">google.setOnLoadCallback(a);var b,d,g,h,k,l,m,n=data.getNumberOfRows(),p=data.getNumberOfColumns();data.addColumn({type:"string",role:"tooltip"});data.addColumn("number","NormalizedData","NormalizedData");data.addColumn("number",TDailyGoals);data.addColumn("number",TASleepTime);data.addColumn("number",TAwakeTime);data.addColumn("string","DateAsString","DateAsString");data.addColumn("string","DowAsString","DowAsString");g=13;m=1E3;
+for(var q=[13,12,14,15,16,17,18,19,20],r=[8,9,10,11,p+3,p+4],t,u,w,x=[TD0,TD1,TD2,TD3,TD4,TD5,TD6],y={colors:[]},z=0;z<n;z++){t=new Date(data.getValue(z,21));u=new Date(data.getValue(z,22));w=+t===+u?null:30==t.getDate()?t.getHours()+t.getMinutes()/60:24+t.getHours()+t.getMinutes()/60;data.setCell(z,p+3,w);w=+t===+u?null:30==u.getDate()?-24+u.getHours()+u.getMinutes()/60:u.getHours()+u.getMinutes()/60;data.setCell(z,p+4,w);for(var A=0;9>A;A++)0==data.getFormattedValue(z,q[A])&&data.setCell(z,q[A],
+null);for(A=0;4>A;A++)0==data.getFormattedValue(z,r[A])&&data.setCell(z,r[A],null);0==data.getFormattedValue(z,6)||6==data.getFormattedValue(z,6)?y.colors.push("#FF9900"):y.colors.push("#3366CC");data.setCell(z,p+5,data.getFormattedValue(z,0));data.setCell(z,p+6,x[data.getFormattedValue(z,6)])}var B=new google.visualization.DataView(data),C=new google.visualization.DataView(data),D=new google.visualization.DataView(data),E=new google.visualization.DataView(data);E.setColumns([p+5,p+6,21,22]);
+var F={colors:["#3366CC","green"],fill:10,b:2,a:"newRow"},G={legend:"none",colors:["#DC3912","transparent"],hAxis:{ticks:[{v:0,f:TD0},{v:1,f:TD1},{v:2,f:TD2},{v:3,f:TD3},{v:4,f:TD4},{v:5,f:TD5},{v:6,f:TD6}]},chartArea:{left:"85px",top:"10px",width:"80%",height:"75%"},trendlines:{0:{type:"polynomial",degree:5,color:"black"},1:{color:"#109618"}}},H=Math.min(Math.ceil((9*function(){if(self.innerHeight)return self.innerWidth;if(document.documentElement&&document.documentElement.clientHeight)return document.documentElement.clientWidth;
+if(document.body)return document.body.clientWidth}()/10-60)/53),Math.ceil((9*function(){if(self.innerHeight)return self.innerHeight;if(document.documentElement&&document.documentElement.clientHeight)return document.documentElement.clientHeight;if(document.body)return document.body.clientHeight}()/10-350)/21)),I={height:21*H,calendar:{cellSize:H,daysOfWeek:TDL}};
+function J(){g=parseInt(document.StepForm.Select2.options[document.StepForm.Select2.selectedIndex].value);g!=l&&0!=g&&(99==g?(B.setColumns([6,p+3,p+2,23]),D.setColumns([0,p+3,p+2,p+4,23]),document.getElementById("chart4_div").style.height=47*n+"px",document.getElementById("chart4_div").style.visibility="visible",document.getElementById("chart3_div").style.height="1px",document.getElementById("chart3_div").style.visibility="hidden",g=p+3,h=0):(B.setColumns([6,g,p+2,23]),D.setColumns([0,g,p+2,23]),
+C.setColumns([0,p+1]),document.getElementById("chart4_div").style.height="10px",document.getElementById("chart4_div").style.visibility="hidden",document.getElementById("chart3_div").style.height=21*H+"px",document.getElementById("chart3_div").style.visibility="visible",13==g?(h=WalkGoal,m=1E3):8==g?(h=60*SleepGoal,m=60):g==p+3?(h=21,m=1):g==p+4?(h=8,m=1):(h=Math.round(8*data.getColumnRange(g).max/Math.pow(10,Math.round(Math.log(data.getColumnRange(g).max)/2.303)))*Math.pow(10,Math.round(Math.log(data.getColumnRange(g).max)/
+2.303)-1),m=Math.round(data.getColumnRange(g).max/Math.pow(10,Math.round(Math.log(data.getColumnRange(g).max)/2.303)))*Math.pow(10,Math.round(Math.log(data.getColumnRange(g).max)/2.303)-1))),k=-99,l=g);document.getElementById("WalkGoal").innerHTML=h;if(h!=k){for(var e=0;e<n;e++)0==data.getFormattedValue(e,g)?data.setCell(e,p+1,null):data.setCell(e,p+1,data.getFormattedValue(e,g)-h),data.setCell(e,p+2,h);k=h}b.draw(D,F);d.draw(B,G);chart3.draw(C,I);chart4.draw(E,y)}window.RD=J;
+function a(){b=new google.visualization.AnnotationChart(document.getElementById("chart1_div"));d=new google.visualization.ScatterChart(document.getElementById("chart2_div"));chart3=new google.visualization.Calendar(document.getElementById("chart3_div"));chart4=new google.visualization.Timeline(document.getElementById("chart4_div"));document.getElementById("chart3_div").style.height=21*H+"px";select=document.getElementById("Select2");for(var e=0;e<q.length;e++){var c=document.createElement("option");
+c.textContent=data.getColumnLabel(q[e]);c.value=q[e];select.appendChild(c)}c=document.createElement("option");c.textContent=" ";c.value=0;select.appendChild(c);document.getElementById("Goals").innerHTML=TDailyGoals;for(e=0;e<r.length;e++)c=document.createElement("option"),c.textContent=data.getColumnLabel(r[e]),c.value=r[e],select.appendChild(c);c=document.createElement("option");c.textContent=" ";c.value=0;select.appendChild(c);c=document.createElement("option");c.textContent="Sleep Timeline";c.value=
+99;select.appendChild(c);J();google.visualization.events.addListener(chart3,"select",function(){b.setSelection(chart3.getSelection());d.setSelection(chart3.getSelection())});google.visualization.events.addListener(b,"select",function(){chart3.setSelection(b.getSelection());d.setSelection(b.getSelection())});google.visualization.events.addListener(d,"select",function(){chart3.setSelection(d.getSelection());b.setSelection(d.getSelection())})}window.GD=function(){h>m&&(h-=m,J())};
+window.GI=function(){h<data.getColumnRange(g).max&&(h+=m,J())};</script> 
+  </head>
+  
+  <body>
+    <table style="width: 99%;" >
+      <tr valign="top" style="height: 300px;" >
+        <td style="width: 50%;">
+          <div id="chart2_div" style="height: 300px"></div>
+        </td>
+        <td style="width: 50%;">
+          <div id="chart1_div" style="height: 300px"></div>
+        </td>
+      </tr>
+    </table>
+   <form style="margin-left:20px;" id="StepForm" name="StepForm">Data: <select id="Select2" onchange="RD()" name="Select2"></select>
+	  <span style="margin-left:20px;">
+ 	  	<label id="Goals"> </label>
+    		<input type="button" value="-" onclick="GD();"/>
+    	 	<label id="WalkGoal"> </label>
+    		<input type="button" value="+" onclick="GI();"/>
+    	  </span>
+ 	  </form>
+    <div id="chart3_div" style="width:98%; height: 100px;"></div>
+    <div id="chart4_div" style="width:98%; height: 1px;"></div>
+  </body>
+</html>

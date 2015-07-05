@@ -1,0 +1,2 @@
+{"dataStreamName":"MeStream","name":"MeName","type":"raw","application":{"detailsUrl":"http://example.com","name":"MiBandExtractor","version":"1"},"dataType":{"field":[{"name":"distance","format":"floatPoint"}],"name":"com.google.distance.delta"},"device":{"manufacturer":"Me","model":"MeBand","type":"watch","uid":"1324440","version":"1"}}
+

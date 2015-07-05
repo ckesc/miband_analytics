@@ -1,0 +1,2 @@
+{"dataStreamName":"MeStream","name":"MeName","type":"raw","application":{"detailsUrl":"http://example.com","name":"MiBandExtractor","version":"1"},"dataType":{"field":[{"name":"steps","format":"integer"}],"name":"com.google.step_count.delta"},"device":{"manufacturer":"Me","model":"MeBand","type":"watch","uid":"1324439","version":"1"}}
+

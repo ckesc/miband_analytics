@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0016)http://localhost -->
+<html>
+  <head>
+	<script type="text/javascript" src="https://www.google.com/jsapi?autoload={'modules':[{'name':'visualization','version':'1','packages':['corechart','table','controls']}]}"></script>
+
+	<script type="text/javascript" src="config.js"></script> 
+	<script type="text/javascript" src="app_locale.js"></script>
+	<script type="text/javascript" src="locale.js"></script> 
+	<script type="text/javascript" src="extract.js"></script> 
+	<script type="text/javascript">google.setOnLoadCallback(a);var b,c,d=data.getNumberOfRows(),e=data.getNumberOfColumns(),AggType=1,g,k,l;data.addColumn("number","Sleep Goal, minutes");data.addColumn("number","Activity Goal, steps");data.addColumn("string",TInBedMin);data.addColumn("string",TDeepSleepMin);data.addColumn("string",TLightSleepMin);data.addColumn("string",TAwakeMin);function m(h){var K;h+="";return 2<=h.length?h:Array(2-h.length+1).join(K||"0")+h}
+for(var n=0;n<d;n++)data.setCell(n,e,60*SleepGoal),data.setCell(n,e+1,WalkGoal),g=Math.floor(data.getFormattedValue(n,8)/60),k=data.getFormattedValue(n,8)%60,data.setCell(n,e+2,m(g.toString())+":"+m(k.toString())),g=Math.floor(data.getFormattedValue(n,9)/60),k=data.getFormattedValue(n,9)%60,0!=data.getFormattedValue(n,8)?(l=Math.round(100*data.getFormattedValue(n,9)/data.getFormattedValue(n,8)),data.setCell(n,e+3,m(g.toString())+":"+m(k.toString())+" ("+l.toString()+"%)")):data.setCell(n,e+3,m(g.toString())+
+":"+m(k.toString())),g=Math.floor(data.getFormattedValue(n,10)/60),k=data.getFormattedValue(n,10)%60,0!=data.getFormattedValue(n,8)?(l=Math.round(100*data.getFormattedValue(n,10)/data.getFormattedValue(n,8)),data.setCell(n,e+4,m(g.toString())+":"+m(k.toString())+" ("+l.toString()+"%)")):data.setCell(n,e+4,m(g.toString())+":"+m(k.toString())),g=Math.floor(data.getFormattedValue(n,11)/60),k=data.getFormattedValue(n,11)%60,data.setCell(n,e+5,m(g.toString())+":"+m(k.toString()));var p,q,r,t,u,w=new google.visualization.DataView(data);
+w.setColumns([0,5,6,8,9,10,11,12,13,14,15,16,17,18,19,20,e,e+1,e+2,e+3,e+4,e+5]);
+var x=new google.visualization.NumberFormat({pattern:"#"}),y=google.visualization.data.group(data,[{column:4,type:"string"}],[{column:5,aggregation:google.visualization.data.avg,type:"number"},{column:8,aggregation:google.visualization.data.avg,type:"number"},{column:9,aggregation:google.visualization.data.avg,type:"number"},{column:10,aggregation:google.visualization.data.avg,type:"number"},{column:11,aggregation:google.visualization.data.avg,type:"number"},{column:12,aggregation:google.visualization.data.avg,
+type:"number",label:TDistanceAvg},{column:12,aggregation:google.visualization.data.sum,type:"number",label:TDistanceSumW},{column:13,aggregation:google.visualization.data.avg,type:"number",label:TStepsAvg},{column:13,aggregation:google.visualization.data.sum,type:"number",label:TStepsSumW},{column:14,aggregation:google.visualization.data.avg,type:"number"},{column:15,aggregation:google.visualization.data.avg,type:"number"},{column:16,aggregation:google.visualization.data.avg,type:"number"},{column:17,
+aggregation:google.visualization.data.avg,type:"number"},{column:18,aggregation:google.visualization.data.avg,type:"number"},{column:19,aggregation:google.visualization.data.avg,type:"number"},{column:20,aggregation:google.visualization.data.avg,type:"number"},{column:e,aggregation:google.visualization.data.max,type:"number"},{column:e+1,aggregation:google.visualization.data.max,type:"number"}]),z=y.getNumberOfRows(),A=y.getNumberOfColumns();y.addColumn("string",TInBedMin);y.addColumn("string",TDeepSleepMin);
+y.addColumn("string",TLightSleepMin);y.addColumn("string",TAwakeMin);
+for(n=0;n<z;n++)g=Math.floor(y.getFormattedValue(n,2)/60),k=Math.round(y.getFormattedValue(n,2))%60,y.setCell(n,A,m(g.toString())+":"+m(k.toString())),g=Math.floor(y.getFormattedValue(n,3)/60),k=Math.round(y.getFormattedValue(n,3))%60,0!=y.getFormattedValue(n,2)?(l=Math.round(100*y.getFormattedValue(n,3)/y.getFormattedValue(n,2)),y.setCell(n,A+1,m(g.toString())+":"+m(k.toString())+" ("+l.toString()+"%)")):y.setCell(n,A+1,m(g.toString())+":"+m(k.toString())),g=Math.floor(y.getFormattedValue(n,4)/60),
+k=Math.round(y.getFormattedValue(n,4))%60,0!=y.getFormattedValue(n,2)?(l=Math.round(100*y.getFormattedValue(n,4)/y.getFormattedValue(n,2)),y.setCell(n,A+2,m(g.toString())+":"+m(k.toString())+" ("+l.toString()+"%)")):y.setCell(n,A+2,m(g.toString())+":"+m(k.toString())),g=Math.floor(y.getFormattedValue(n,5)/60),k=Math.round(y.getFormattedValue(n,5))%60,y.setCell(n,A+3,m(g.toString())+":"+m(k.toString()));
+var B=google.visualization.data.group(data,[{column:2,type:"string"}],[{column:3,aggregation:google.visualization.data.avg,type:"number"},{column:8,aggregation:google.visualization.data.avg,type:"number"},{column:9,aggregation:google.visualization.data.avg,type:"number"},{column:10,aggregation:google.visualization.data.avg,type:"number"},{column:11,aggregation:google.visualization.data.avg,type:"number"},{column:12,aggregation:google.visualization.data.avg,type:"number",label:TDistanceAvg},{column:12,
+aggregation:google.visualization.data.sum,type:"number",label:TDistanceSumM},{column:13,aggregation:google.visualization.data.avg,type:"number",label:TStepsAvg},{column:13,aggregation:google.visualization.data.sum,type:"number",label:TStepsSumM},{column:14,aggregation:google.visualization.data.avg,type:"number"},{column:15,aggregation:google.visualization.data.avg,type:"number"},{column:16,aggregation:google.visualization.data.avg,type:"number"},{column:17,aggregation:google.visualization.data.avg,
+type:"number"},{column:18,aggregation:google.visualization.data.avg,type:"number"},{column:19,aggregation:google.visualization.data.avg,type:"number"},{column:20,aggregation:google.visualization.data.avg,type:"number"},{column:e,aggregation:google.visualization.data.max,type:"number"},{column:e+1,aggregation:google.visualization.data.max,type:"number"}]),C=B.getNumberOfRows(),D=B.getNumberOfColumns();B.addColumn("string",TInBedMin);B.addColumn("string",TDeepSleepMin);B.addColumn("string",TLightSleepMin);
+B.addColumn("string",TAwakeMin);
+for(n=0;n<C;n++)g=Math.floor(B.getFormattedValue(n,2)/60),k=Math.round(B.getFormattedValue(n,2))%60,B.setCell(n,D,m(g.toString())+":"+m(k.toString())),g=Math.floor(B.getFormattedValue(n,3)/60),k=Math.round(B.getFormattedValue(n,3))%60,0!=B.getFormattedValue(n,2)?(l=Math.round(100*B.getFormattedValue(n,3)/B.getFormattedValue(n,2)),B.setCell(n,D+1,m(g.toString())+":"+m(k.toString())+" ("+l.toString()+"%)")):B.setCell(n,D+1,m(g.toString())+":"+m(k.toString())),g=Math.floor(B.getFormattedValue(n,4)/60),
+k=Math.round(B.getFormattedValue(n,4))%60,0!=B.getFormattedValue(n,2)?(l=Math.round(100*B.getFormattedValue(n,4)/B.getFormattedValue(n,2)),B.setCell(n,D+2,m(g.toString())+":"+m(k.toString())+" ("+l.toString()+"%)")):y.setCell(n,D+2,m(g.toString())+":"+m(k.toString())),g=Math.floor(B.getFormattedValue(n,5)/60),k=Math.round(B.getFormattedValue(n,5))%60,B.setCell(n,D+3,m(g.toString())+":"+m(k.toString()));for(n=2;17>n;n++)x.format(y,n),x.format(B,n);
+var E=new google.visualization.DataView(w),F=new google.visualization.DataView(w),G=new google.visualization.DataView(w);E.setColumns([0,1,2,18,19,20,21,7,8,9,10,11,12,13,14,15]);F.setColumns([0,4,5,6,16]);G.setColumns([0,7,8,9,17]);viewTableW=new google.visualization.DataView(y);viewSleepW=new google.visualization.DataView(y);viewWalkW=new google.visualization.DataView(y);viewTableW.setColumns([0,1,19,20,21,22,6,7,8,9,10,11,12,13,14,15,16]);viewSleepW.setColumns([0,3,4,5,17]);
+viewWalkW.setColumns([0,6,8,10,18]);viewTableM=new google.visualization.DataView(B);viewSleepM=new google.visualization.DataView(B);viewWalkM=new google.visualization.DataView(B);viewTableM.setColumns([0,1,19,20,21,22,6,7,8,9,10,11,12,13,14,15,16]);viewSleepM.setColumns([0,3,4,5,17]);viewWalkM.setColumns([0,6,8,10,18]);
+var H={isStacked:!0,legend:{position:"bottom"},title:TSleep,focusTarget:"category",seriesType:"bars",bar:{groupWidth:"80%"},series:{3:{type:"line",lineDashStyle:[8,6]}},hAxis:{format:"d/M"},chartArea:{left:"85px",top:"20px",width:"80%",height:"75%"}},I={curveType:"function",legend:{position:"bottom"},title:TActivity,series:{3:{lineDashStyle:[8,6]}},vAxis:{viewWindow:{min:0}},hAxis:{format:"d/M"},chartArea:{left:"85px",top:"20px",width:"80%",height:"75%"}};
+function J(){document.getElementById("SleepGoal").innerHTML=SleepGoal;document.getElementById("WalkGoal").innerHTML=WalkGoal;if(SleepGoal!=b){for(var h=0;h<d;h++)data.setCell(h,e,60*SleepGoal);for(h=0;h<z;h++)y.setCell(h,A-2,60*SleepGoal);for(h=0;h<C;h++)B.setCell(h,D-2,60*SleepGoal);t=new google.visualization.ArrowFormat({base:60*SleepGoal});t.format(data,8);t.format(y,2);t.format(B,2);b=SleepGoal}if(WalkGoal!=c){for(h=0;h<d;h++)data.setCell(h,e+1,WalkGoal);for(h=0;h<z;h++)y.setCell(h,A-1,WalkGoal);
+for(h=0;h<C;h++)B.setCell(h,D-1,WalkGoal);u=new google.visualization.ArrowFormat({base:WalkGoal});u.format(data,13);u.format(y,8);u.format(B,8);c=WalkGoal}1==AggType?(p.draw(F,H),q.draw(G,I),r.draw(E,{showRowNumber:!0,sortColumn:0,sortAscending:!1})):2==AggType?(p.draw(viewSleepW,H),q.draw(viewWalkW,I),r.draw(viewTableW,{showRowNumber:!0,sortColumn:0,sortAscending:!1})):(p.draw(viewSleepM,H),q.draw(viewWalkM,I),r.draw(viewTableM,{showRowNumber:!0,sortColumn:0,sortAscending:!1}))}window.RD=J;
+function a(){p=new google.visualization.ComboChart(document.getElementById("chart1_div"));q=new google.visualization.LineChart(document.getElementById("chart2_div"));r=new google.visualization.Table(document.getElementById("table_div"));J();google.visualization.events.addListener(r,"select",function(){p.setSelection(r.getSelection());q.setSelection(r.getSelection())});google.visualization.events.addListener(p,"select",function(){r.setSelection(p.getSelection());q.setSelection(p.getSelection())});
+google.visualization.events.addListener(q,"select",function(){r.setSelection(q.getSelection());p.setSelection(q.getSelection())});document.getElementById("Goals").innerHTML=TDailyGoals;document.getElementById("SleepGoals").innerHTML=TGoalSleep;document.getElementById("StepGoals").innerHTML=TGoalSteps;document.getElementById("AggregateBy").innerHTML=TAggregate;document.getElementById("ByDay").value=TAggregateDay;document.getElementById("ByWeek").value=TAggregateWeek;document.getElementById("ByMonth").value=
+TAggregateMonth}window.SGD=function(){1<SleepGoal&&(--SleepGoal,J())};window.SGI=function(){24>SleepGoal&&(SleepGoal+=1,J())};window.WGD=function(){1E3<WalkGoal&&(WalkGoal-=1E3,J())};window.WGI=function(){24E3>WalkGoal&&(WalkGoal+=1E3,J())};</script> 
+  </head>
+  
+  <body>
+    <table style="width: 99%;" >
+      <tr valign="top" style="height: 350px;" >
+        <td style="width: 50%;">
+	          <div id="chart1_div" style="height: 350px"></div>
+        </td>
+        <td style="width: 50%;">
+          <div id="chart2_div" style="height: 350px"></div>
+        </td>
+      </tr>
+    </table>
+    <form> <label id="Goals"> </label>
+    	<span style="margin-right:50px;"><label id="SleepGoals"> </label>
+    		<input type="button" value="-" onclick="SGD();"/>
+    	 	<label id="SleepGoal"> </label>
+    		<input type="button" value="+" onclick="SGI();"/>
+    	</span>
+    	<span style="margin-right:50px;">
+    		<label  id="StepGoals"> </label>
+    		<input type="button" value="-" onclick="WGD();"/>
+    	 	<label id="WalkGoal"> </label>
+    		<input type="button" value="+" onclick="WGI();"/>
+    	</span>
+
+    	<label id="AggregateBy"> </label> 
+	<input type="button" id="ByDay" value="day" onclick="AggType = 1; RD();"/>
+    	<input type="button" id="ByWeek" value="week" onclick="AggType = 2; RD();"/>   
+    	<input type="button" id="ByMonth" value="month" onclick="AggType = 3; RD();"/>
+    </form>
+    <div id="table_div" style="align: center; "></div>
+  </body>
+</html>

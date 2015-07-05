@@ -1,0 +1,24 @@
+To add support for a new language:
+For HTML pages
+1. Open locale.js in editor supporting UTF-8 encoding.
+2. Create a new section starting with 
+if (lang == "ru_RU") { }
+and replace ru_RU with a locale string for your language.
+3. Copy all strings from english version to inside { } brackets and translate the text.
+4. Save file in UTF-8 encoding.
+5. Add reference to your new language in comments section of config.js
+
+For unix shell script:
+For all subsequent entries, replace XX with 2-character locale name of your language
+
+1. Create new po file using following command:
+bash --dump-po-strings run.sh > po/XX.po
+2. Edit newly generated file and translate msgstr entries using msgid entries as references
+3. Save the file and generate new directory for the compiled langage file (.mo) using following command:
+mkdir -p i18n/XX/LC_MESSAGES/
+4. Compile .po file to .mo file msgfmt -o i18n/XX/LC_MESSAGES/mibandextract.mo po/XX.po
+
+If you do not want to use the i18n folder and want the langage file to be system wide, you just have to comment (adding a #) the line "export TEXTDOMAINDIR=./i18n/" in the script.
+Then you will have to move your po file to /usr/share/locale/XX/LC_MESSAGES/ (where XX is your langage). 
+
+
