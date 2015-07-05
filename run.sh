@@ -34,13 +34,14 @@ if [ ! -f ./db/origin_db ] || [ $ForceBackupMode == 'Y' ]
      echo $"Press Backup My Data button on device..." 2>&1 | tee -a log
      adb backup -f mi.ab -noapk -noshared com.xiaomi.hm.health
      echo $"unpacking backup file"  2>&1 | tee -a log
-     tail -c +25 mi.ab > mi.zlb  2>&1 | tee -a log
-     cat mi.zlb | openssl zlib -d > mi.tar 2>&1 | tee -a log
+     # tail -c +25 mi.ab > mi.zlb  2>&1 | tee -a log
+     dd if=mi.ab bs=1 skip=24 | python -c "import zlib,sys;sys.stdout.write(zlib.decompress(sys.stdin.read()))" > mi.tar
+     # cat mi.zlb | openssl zlib -d > mi.tar 2>&1 | tee -a log
      tar xvf mi.tar apps/com.xiaomi.hm.health/db/origin_db apps/com.xiaomi.hm.health/db/origin_db-journal  2>&1 | tee -a log
  
      echo $"deleting temp file" 2>&1 | tee -a log
      rm mi.ab
-     rm mi.zlb
+     # rm mi.zlb
      rm mi.tar
      cp -f apps/com.xiaomi.hm.health/db/origin_db* ./db/
      rm -rf apps/
@@ -55,11 +56,11 @@ if [ ! -f ./db/origin_db ] || [ $ForceBackupMode == 'Y' ]
     [[ -f ./db/origin_db-journal.bak ]] && mv ./db/origin_db-journal.bak origin_db-journal
  else
      echo $"sqlite operation started" 2>&1 | tee -a log
-     sqlite3 ./db/origin_db < ./db/miband.sql | tee -a log
+     /usr/local/Cellar/sqlite/*/bin/sqlite3 ./db/origin_db < ./db/miband.sql | tee -a log
      [[ -f ./db/origin_db.bak ]] && rm ./db/origin_db.bak | tee -a log
      [[ -f ./db/origin_db-journal.bak ]] && rm ./db/origin_db-journal.bak | tee -a log
      
-     [[ $OpenHTML == 'Y' ]] && xdg-open mi_data.html  
+     [[ $OpenHTML == 'Y' ]] && open mi_data.html  
   
  fi
 fi
