@@ -4,14 +4,15 @@ Extended analytics for data from Xiaomi Mi Band
 ![Screenshot](http://i.imgur.com/id5BV3q.gif)
 ![Screenshot](http://i.imgur.com/tg1XKO9.gif)
 
-#Mac OS X
+# Mac OS X
 For Mac OS X install fresh sqlite3
 ```bash
 brew install sqlite3
 ```
 
-#New versions
+# New versions
 [Original version here](http://forum.xda-developers.com/general/accessories/xiaomi-mi-band-data-extraction-t3019156/post58575745#post58575745)
+
 [Original russian description here](http://4pda.ru/forum/index.php?showtopic=596501)
 
 # How to use:
